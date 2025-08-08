@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width,initial-scale=1" />
+ <title>Home — Collaborative Quiz</title>
+ <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-animated">
+
+ <header class="topbar">
+ <div class="container row between">
+ <div class="brand-row">
+ <div class="logo">QuizLab</div>  <div class="muted small" id="welcomeSub">Loading...</div>
+ </div>
+ <div class="row">
+ <button class="btn ghost" id="btnLogout">Log out</button>
+ </div>
+ </div>
+ </header>
+
+ <main class="container">
+ <nav class="tabs">
+ <button class="tab-btn active" data-tab="create">Create Quiz</button>
+ <button class="tab-btn" data-tab="quizzes">Quizzes</button>
+ <button class="tab-btn" data-tab="scores">Scores</button>
+ </nav>
+
+ <!-- CREATE -->
+ <section id="create" class="tab-panel active">
+ <div class="row between">
+ <h2>Create Quiz</h2>
+ <div class="small muted">Design your quiz, add questions, then Save & Share.</div>
+ </div>
+
+ <div class="glass card">
+ <div class="row">
+ <input id="quizTitle" placeholder="Quiz title (e.g. JS Basics)" />
+ <input id="quizDesc" placeholder="Short description (optional)" />
+ </div>
+
+ <div id="questionsArea" style="margin-top:12px"></div>
+
+ <div class="row" style="gap:8px; margin-top:12px">
+ <button id="addQuestionBtn" class="btn ghost">+ Add Question</button>
+ <button id="saveQuizBtn" class="btn">Save & Generate Link</button>
+ </div>
+
+ <div id="shareArea" class="share-area" style="display:none; margin-top:12px">
+<input id="shareLink" readonly />
+ <button id="copyLink" class="btn ghost">Copy Link</button>
+ </div>
+ </div>
+ </section>
+
+ <!-- QUIZZES LIST -->
+ <section id="quizzes" class="tab-panel">
+ <div class="row between">
+ <h2>Your Quizzes</h2>
+ <div class="small muted">Preview, copy link or open quiz as participant.</div>
+ </div>
+
+ <div id="myQuizzesList" style="margin-top:12px"></div>
+</section>
+
+ <!-- SCORES -->
+ <section id="scores" class="tab-panel">
+ <div class="row between">
+ <h2>Scores / Leaderboard</h2>
+ <div class="small muted">Select a quiz to view participants' results.</div>
+ </div>
+
+ <div class="glass card" style="margin-top:12px">
+ <div class="row">
+ <select id="scoresQuizSelect"><option value="">Select a quiz</option></select>
+ <button id="exportCsv" class="btn ghost">Export CSV</button>
+ </div>
+
+ <div id="leaderboard" style="margin-top:12px"></div>
+ </div>
+ </section>
+
+</main>
+
+ <!-- Quiz modal / full-screen panel for taking quiz -->  <div id="quizModal" class="modal" style="display:none">
+ <div class="modal-content glass">
+ <div class="row between">
+ <div>
+ <div id="modalQuizTitle" style="font-weight:700"></div>
+<div id="modalQuizDesc" class="small muted"></div>
+</div>
+  <button id="closeModal" class="btn ghost">Close</button>
+ </div>
+
+ <div id="modalBody" style="margin-top:12px">
+ <div id="progressWrap" class="small muted">Question <span id="curQ">1</span> / <span id="totQ">1</span></div>
+<div id="questionCard" class="question-card" style="margin-top:10px"></div>
+
+ <div class="row between" style="margin-top:12px">
+ <button id="prevQ" class="btn ghost">Prev</button>
+ <div>
+ <button id="nextQ" class="btn ghost">Next</button>
+ <button id="submitQuiz" class="btn" style="display:none">Submit</button>
+</div>
+ </div>
+ </div>
+
+ <div id="resultPanel" style="display:none; margin-top:12px">
+ <div class="card glass">
+ <div style="font-size:20px; font-weight:700" id="finalScoreTitle">Your score</div>
+ <div class="small muted" id="finalScoreMsg"></div>
+
+ <div style="margin-top:10px">
+ <input id="participantName" placeholder="Your name (required to save)" />
+ <input id="participantEmail" placeholder="Email (optional)" />
+ <div style="margin-top:8px; display:flex; gap:8px">
+ <button id="saveResultBtn" class="btn">Save Result</button>
+ <button id="closeResultBtn" class="btn ghost">Close</button>
+ </div>
+</div>
+</div>
+ </div>
+
+</div>
+ </div>
+
+<script src="script.js"></script>
+</body>
+</html>

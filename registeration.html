@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Register — Collaborative Quiz</title>
+ <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-animated">
+
+ <main class="center">
+  <div class="glass card-lg auth-card">
+  <div class="auth-left">
+ <h1 class="brand">QuizLab</h1>
+    <p class="muted">Create and share interactive quizzes. This demo uses localStorage.</p>
+ </div>
+
+   <form id="registerForm" class="auth-right">
+ <h2>Create your account</h2>
+
+   <label class="label">Username</label>
+   <input id="regUsername" required placeholder="e.g. FIRSTNAME_LASTNAME" />
+
+ <label class="label">Email</label>
+ <input id="regEmail" type="email" required placeholder="name@example.com" />
+
+ <label class="label">Password</label>
+ <input id="regPassword" type="password" required placeholder="min 6 characters" />
+
+ <div class="row between">
+ <button class="btn" type="submit">Create account</button>
+ <p>Already have an account? <a href="login.html">Login</a></p>
+ </div>
+
+ <div class="small muted" style="margin-top:10px">
+ This is a client-side demo — passwords are stored only locally for assignment use.
+ </div>
+ </form>
+ </div>
+</main>
+
+ <script src="script.js"></script>
+</body>
+</html>
